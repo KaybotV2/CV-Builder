@@ -89,11 +89,6 @@ textarea {
   padding: 0;
 }
 
-.editor-main-body {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: auto;
-}
 
 .resume-builder-container {
   display: flex;
