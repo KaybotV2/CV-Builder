@@ -28,10 +28,22 @@ const Tools = ({
     };
 
     return (
-        <div>
-            <button onClick={increaseFontSize}>Increase Font Size</button>
-            <button onClick={decreaseFontSize}>Decrease Font Size</button>
-            <button onClick={togglePickerVisible}>Pick Color</button>
+        <div className='tools-container'>
+            <div>
+                <button onClick={increaseFontSize}>Increase Font Size</button>
+                <button onClick={decreaseFontSize}>Decrease Font Size</button>
+                <button onClick={togglePickerVisible}>Pick Color</button>
+            </div>
+
+            <hr></hr>
+            <label>
+                Header Text Color:
+                <input type="color" onChange={handleHeaderColorChange} value={headerColor} />
+            </label>
+            <label>
+                Header fontSize:
+                <input type="number" onChange={handleHeaderFontChange} />
+            </label>
             <label>
                 Text Color:
                 <input type="color" onChange={handleTextColorChange} value={color} />
@@ -40,15 +52,8 @@ const Tools = ({
                 Text fontSize:
                 <input type="number" onChange={handleTextFontChange} />
             </label>
-            <label>
-                Header Color:
-                <input type="color" onChange={handleHeaderColorChange} value={headerColor} />
-            </label>
-            <label>
-                Header fontSize:
-                <input type="number" onChange={handleHeaderFontChange} />
-            </label>
             
+            <hr></hr>
             <label>
                 Background Image:
                 <input type="file" onChange={handleImageUpload} accept="image/*" />
@@ -61,6 +66,8 @@ const Tools = ({
                 Background Opacity:
                 <input type="range" min="0" max="1" step="0.1" value={bgImageOpacity} onChange={handleOpacityChange} />
             </label>
+
+            <hr></hr>
             <label>
                 Header Height:
                 <input
@@ -80,6 +87,8 @@ const Tools = ({
                     style={{ marginLeft: '5px', width: '80px' }}
                 />
             </label>
+           
+            <hr></hr>
             <label>
                 Upload logo:
                 <input type="file" onChange={handleLogoUpload} accept="image/*" />

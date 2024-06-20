@@ -5,8 +5,9 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import SaveTemplate from '../components/SaveTemplate';
 
 
-const ResumeBuilder = () => {
+const ResumeTemplateBuilder = () => {
     const [droppedElements, setDroppedElements] = useState([]);
+   
   
     const handleDropInEditor = (e) => {
         e.preventDefault();
@@ -51,10 +52,11 @@ const ResumeBuilder = () => {
         );
     };
 
+   
     return (
         <ErrorBoundary>
             <div className="resume-builder-container">
-                <div>
+                <div className='dragable-text'>
                     <Heading1>Add a heading</Heading1>
                     <Heading2>Add a subheading</Heading2>
                     <Paragraph>Add body text</Paragraph>
@@ -73,4 +75,4 @@ const ResumeBuilder = () => {
     );
 };
 
-export default ResumeBuilder;
+export default ResumeTemplateBuilder;

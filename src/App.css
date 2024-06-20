@@ -1,12 +1,92 @@
+header.app-header {
+    background-color:  #007bff;
+    padding: 20px 0;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+/* Button Styles */
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 2px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Input Styles */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Textarea Styles */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
 .app {
   text-align: center;
+}
+
+.tab-button {
+  border-radius: 5px 5px 0 0;
+  padding: 5px 15px;
+  margin: 2px 2px 0 0;
+  background-color: #fff;
+  color: #3b3a3a;
+}
+
+.tab-button:hover {
+  font-weight: bolder;
+  background-color: #cecbcb;
+}
+
+.tab-button.active {
+  background-color:#f2f0f5;
+}
+
+.template-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.tools-in-editor-container {
+  width: 15%;
 }
 
 #editor {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
 }
 
 .editor-main-body {
@@ -92,6 +172,7 @@
 }
 
 .editor-container {
+  max-width: 1200px;
   position: relative;
   width: 100%;
   background-color: white;
@@ -107,7 +188,7 @@
 
 .watermark {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3em;

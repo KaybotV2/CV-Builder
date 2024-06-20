@@ -101,7 +101,8 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
     const handleTextFontChange = (e) => setFontSize(e.target.value);
     const handleHeaderColorChange = (e) => setheaderColor(e.target.value);
     const handleHeaderFontChange = (e) => setHeaderFontSize(e.target.value);
-    
+
+   
 
     const renderElement = (element, index) => {
         const handleDelete = () => {
@@ -151,70 +152,70 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
 
     return (
         <>
-            <div>
-                <Tools
-                    increaseFontSize={increaseFontSize}
-                    decreaseFontSize={decreaseFontSize}
-                    togglePickerVisible={togglePickerVisible}
-                    handleTextColorChange={handleTextColorChange}
-                    color={color}
-                    handleTextFontChange={handleTextFontChange}
-                    handleHeaderColorChange={handleHeaderColorChange}
-                    headerColor={headerColor}
-                    handleHeaderFontChange={handleHeaderFontChange}
-                    handleLogoUpload={handleLogoUpload}
-                    handleImageUpload={handleImageUpload}
-                    handleBgColorChange={handleBgColorChange}
-                    bgColor={bgColor}
-                    handleOpacityChange={handleOpacityChange}
-                    bgImageOpacity={bgImageOpacity}
-                    handleHeightChange={handleHeightChange}
-                    headerHeight={headerHeight}
-                    handlePaddingChange={handlePaddingChange}
-                    headerPadding={headerPadding}
-                    onWatermarkTextChange={handleWatermarkTextChange}
-                    watermarkText={inputValue}
-                />
-                <div>
-                    <span onClick={togglePickerVisible}>X</span>
-                    {isPickerVisible && (
-                        <ColorPicker onChange={handleColorChange} />
-                    )}
+            <div className='tools-in-editor-container'>
+                    <div>
+                        <span onClick={togglePickerVisible}>X</span>
+                        {isPickerVisible && (
+                            <ColorPicker onChange={handleColorChange} />
+                        )}
+                    </div>
+                    <Tools
+                        increaseFontSize={increaseFontSize}
+                        decreaseFontSize={decreaseFontSize}
+                        togglePickerVisible={togglePickerVisible}
+                        handleTextColorChange={handleTextColorChange}
+                        color={color}
+                        handleTextFontChange={handleTextFontChange}
+                        handleHeaderColorChange={handleHeaderColorChange}
+                        headerColor={headerColor}
+                        handleHeaderFontChange={handleHeaderFontChange}
+                        handleLogoUpload={handleLogoUpload}
+                        handleImageUpload={handleImageUpload}
+                        handleBgColorChange={handleBgColorChange}
+                        bgColor={bgColor}
+                        handleOpacityChange={handleOpacityChange}
+                        bgImageOpacity={bgImageOpacity}
+                        handleHeightChange={handleHeightChange}
+                        headerHeight={headerHeight}
+                        handlePaddingChange={handlePaddingChange}
+                        headerPadding={headerPadding}
+                        onWatermarkTextChange={handleWatermarkTextChange}
+                        watermarkText={inputValue}
+                    />
+            </div>
+            <div
+                id="editor"
+                ref={editorRef}
+                onDragOver={handleDragOverInEditor}
+                onDrop={handleDropInEditor}
+            >
+                
+                <div className='editor-container'>
+                    <Header
+                        bgImageOpacity={bgImageOpacity}
+                        bgColor={bgColor}
+                        bgImage={bgImage}
+                        headerHeight={headerHeight}
+                        headerPadding={headerPadding}
+                    />
+                    <main className='editor-main-body'>
+                        {droppedElements.map((element, index) => renderElement(element, index))}
+                        <ResumeData 
+                            textColor={color} 
+                            textFontSize={fontSize}
+                            headerColor={headerColor}
+                            headerFontSize={headerFontSize}
+                        />
+                    </main>
+                    <Footer/>
                 </div>
-                <div
-                    id="editor"
-                    ref={editorRef}
-                    onDragOver={handleDragOverInEditor}
-                    onDrop={handleDropInEditor}
-                >
-                    
-                    <div className='editor-container'>
-                        <Header
-                            bgImageOpacity={bgImageOpacity}
-                            bgColor={bgColor}
-                            bgImage={bgImage}
-                            headerHeight={headerHeight}
-                            headerPadding={headerPadding}
-                        />
-                        <main className='editor-main-body'>
-                            {droppedElements.map((element, index) => renderElement(element, index))}
-                            <ResumeData 
-                                textColor={color} 
-                                textFontSize={fontSize}
-                                headerColor={headerColor}
-                                headerFontSize={headerFontSize}
-                            />
-                        </main>
-                        <Footer/>
-                    </div>
-                    <div className='watermark'>
-                        <Watermark
-                            logoImage={logoImage}
-                            watermarkText={watermarkText}
-                            fontSize={headerFontSize}
-                            color={bgColor}
-                        />
-                    </div>
+                <div className='watermark'>
+                    <Watermark
+                        logoImage={logoImage}
+                        watermarkText={watermarkText}
+                        fontSize={headerFontSize}
+                        color={bgColor}
+                    />
                 </div>
             </div>
         </>
