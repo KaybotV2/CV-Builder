@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const Tools = ({
     handleTextColorChange,
@@ -81,7 +81,7 @@ const Tools = ({
             </label>
             <label>
                 Header font size:
-                <input type="number" onChange={handleHeaderFontChange} />
+                <input type="number" onChange={handleHeaderFontChange} value="32"/>
             </label>
             <label>
                 Paragraph font color:
@@ -89,7 +89,7 @@ const Tools = ({
             </label>
             <label>
                 paragraph font size:
-                <input type="number" onChange={handleTextFontChange} />
+                <input type="number" value="16" onChange={handleTextFontChange} />
             </label>
             
             <hr></hr>
@@ -98,7 +98,7 @@ const Tools = ({
                 <input type="file" onChange={handleImageUpload} accept="image/*" />
             </label>
             <label>
-                Header background color:
+                colour schemes:
                 <input type="color" onChange={handleBgColorChange} value={bgColor} />
             </label>
             <label>
@@ -115,7 +115,7 @@ const Tools = ({
                 />
             <label>Header Padding:</label>
                 <input
-                    type="text"
+                    type="number"
                     value={headerPadding}
                     onChange={handlePaddingChange}
                 />

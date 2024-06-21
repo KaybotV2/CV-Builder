@@ -39,7 +39,7 @@ const ResumeData = ({ textColor, textFontSize, headerColor, headerFontSize }) =>
 
     return (
         <div style={{ display: 'flex', textAlign: 'left' }}>
-            <div style={{ flex: 2, margin: '0 10px 0 20px' }}>
+            <div id="leftColunm" style={{ flex: 2, margin: '0 10px 0 20px' }}>
                 <h2 
                     style={headerStyle}
                     contentEditable
@@ -149,7 +149,7 @@ const ResumeData = ({ textColor, textFontSize, headerColor, headerFontSize }) =>
                     </div>
                 ))}
             </div>
-            <div style={{ flex: 1 }}>
+            <div id="rightColunm" style={{ flex: 1, padding: '0 0 0 2rem' }}>
                 <h3 style={headerStyle}>Certifications</h3>
                 {resumeData.certifications && resumeData.certifications.map((cert, index) => (
                     <div key={index}>

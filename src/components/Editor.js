@@ -18,8 +18,8 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
     const [logoImage, setLogoImage] = useState('');
     const [bgColor, setBgColor] = useState('#FFFFFF'); 
     const [bgImage, setBgImage] = useState('');
-    const [headerHeight, setHeaderHeight] = useState(0); 
-    const [headerPadding, setHeaderPadding] = useState('10px');
+    const [headerHeight, setHeaderHeight] = useState(20); 
+    const [headerPadding, setHeaderPadding] = useState(10);
     const [color, setColor] = useState('#000000');
     const [fontSize, setFontSize] = useState(16);
     const [headerColor, setheaderColor] = useState('#000000');
@@ -67,6 +67,8 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
     const handleBgColorChange = (e) => {
         setBgImage(null);
         setBgColor(e.target.value);
+        const rightColunm = document.getElementById('rightColunm');
+        rightColunm.style.background = e.target.value;
     };
 
     const handleLogoUpload = (e) => {

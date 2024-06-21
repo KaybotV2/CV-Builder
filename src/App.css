@@ -58,6 +58,17 @@ textarea {
   min-height: 100px;
 }
 
+ul {
+  list-style-type: none;
+  margin-left: -2.5rem;
+}
+
+li {
+  background-color: #eeecec;
+  margin: 1rem 2rem 0 0;
+  padding: 3px;
+}
+
 .app {
   text-align: center;
 }

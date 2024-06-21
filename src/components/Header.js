@@ -8,7 +8,7 @@ const Header = ({bgImageOpacity, bgColor, bgImage, headerHeight, headerPadding }
         backgroundColor: bgColor ? `${bgColor}` : 'none',
         color: '#fff',
         textAlign: 'center',
-        padding: headerPadding,
+        padding: `${headerPadding}px`,
         backgroundImage: bgImage ? `url(${bgImage})` : 'none',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center',
@@ -22,7 +22,7 @@ const Header = ({bgImageOpacity, bgColor, bgImage, headerHeight, headerPadding }
         width: '100%',
         height: '100%',
         backgroundColor: `rgba(0, 0, 0, ${bgImageOpacity})`, 
-        zIndex: 1
+        zIndex: 0
     };
 
     return (

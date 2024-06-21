@@ -11,11 +11,20 @@ const Watermark = ({logoImage, watermarkText, fontSize, color,}) => {
 
     return (
         <div className='watermark' style={waterMarkStyle}>
-            {watermarkText && <p>{watermarkText}</p>}
-            {logoImage && <div id="logo" style={{ width: '100px', height: 'auto', margin: '0 auto', marginBottom: '10px' }}>
-                {logoImage && <img src={logoImage} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />}
-            </div>}
+            <div style={{ display: 'flex', justifyContent:'center' }}>
+                {watermarkText && (
+                <p style={{ color: color === '#FFFFFF' ? 'black' : `${color}`, margin: '0 10px 0 1rem' }}>
+                    {watermarkText}
+                </p>
+                )}
+                {logoImage && (
+                <div id="logo" style={{ width: '100px', height: 'auto' }}>
+                    <img src={logoImage} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                </div>
+                )}
+            </div>
         </div>
+
     );
 };
 
