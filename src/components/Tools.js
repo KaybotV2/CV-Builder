@@ -1,9 +1,6 @@
 import React from 'react';
 
 const Tools = ({
-    increaseFontSize,
-    decreaseFontSize,
-    togglePickerVisible,
     handleTextColorChange,
     color,
     handleTextFontChange,
@@ -29,65 +26,6 @@ const Tools = ({
 
     return (
         <div className='tools-container'>
-            <div>
-                <button onClick={increaseFontSize}>Increase Font Size</button>
-                <button onClick={decreaseFontSize}>Decrease Font Size</button>
-                <button onClick={togglePickerVisible}>Pick Color</button>
-            </div>
-
-            <hr></hr>
-            <label>
-                Header Text Color:
-                <input type="color" onChange={handleHeaderColorChange} value={headerColor} />
-            </label>
-            <label>
-                Header fontSize:
-                <input type="number" onChange={handleHeaderFontChange} />
-            </label>
-            <label>
-                Text Color:
-                <input type="color" onChange={handleTextColorChange} value={color} />
-            </label>
-            <label>
-                Text fontSize:
-                <input type="number" onChange={handleTextFontChange} />
-            </label>
-            
-            <hr></hr>
-            <label>
-                Background Image:
-                <input type="file" onChange={handleImageUpload} accept="image/*" />
-            </label>
-            <label>
-                Background Color:
-                <input type="color" onChange={handleBgColorChange} value={bgColor} />
-            </label>
-            <label>
-                Background Opacity:
-                <input type="range" min="0" max="1" step="0.1" value={bgImageOpacity} onChange={handleOpacityChange} />
-            </label>
-
-            <hr></hr>
-            <label>
-                Header Height:
-                <input
-                    type="number"
-                    value={headerHeight}
-                    onChange={handleHeightChange}
-                    style={{ marginLeft: '5px', width: '50px' }}
-                />
-                px
-            </label>
-            <label>
-                Header Padding:
-                <input
-                    type="text"
-                    value={headerPadding}
-                    onChange={handlePaddingChange}
-                    style={{ marginLeft: '5px', width: '80px' }}
-                />
-            </label>
-           
             <hr></hr>
             <label>
                 Upload logo:
@@ -101,6 +39,52 @@ const Tools = ({
                     placeholder="Enter watermark text"
             />
             </label>
+            
+            <hr></hr>
+            <label>
+                Header font color:
+                <input type="color" onChange={handleHeaderColorChange} value={headerColor} />
+            </label>
+            <label>
+                Header font size:
+                <input type="number" onChange={handleHeaderFontChange} />
+            </label>
+            <label>
+                Paragraph font color:
+                <input type="color" onChange={handleTextColorChange} value={color} />
+            </label>
+            <label>
+                paragraph font size:
+                <input type="number" onChange={handleTextFontChange} />
+            </label>
+            
+            <hr></hr>
+            <label>
+                Header background image:
+                <input type="file" onChange={handleImageUpload} accept="image/*" />
+            </label>
+            <label>
+                Header background color:
+                <input type="color" onChange={handleBgColorChange} value={bgColor} />
+            </label>
+            <label>
+                Header background opacity:
+                <input type="range" min="0" max="1" step="0.1" value={bgImageOpacity} onChange={handleOpacityChange} />
+            </label>
+
+            <hr></hr>
+            <label>Header height (px):</label>
+                <input
+                    type="number"
+                    value={headerHeight}
+                    onChange={handleHeightChange}
+                />
+            <label>Header Padding:</label>
+                <input
+                    type="text"
+                    value={headerPadding}
+                    onChange={handlePaddingChange}
+                />
         </div>
     );
 };

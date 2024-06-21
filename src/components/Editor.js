@@ -142,6 +142,9 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
                     >
                         Delete
                     </button>
+                    <button onClick={increaseFontSize}>Increase Font Size</button>
+                    <button onClick={decreaseFontSize}>Decrease Font Size</button>
+                    <button onClick={togglePickerVisible}>Pick Color</button>
                     <RenderHTML
                         HTML={element.html} 
                     />
@@ -152,12 +155,42 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
 
     return (
         <>
+            <div
+                id="editor"
+                ref={editorRef}
+                onDragOver={handleDragOverInEditor}
+                onDrop={handleDropInEditor}
+            >
+                
+                <div className='editor-container'>
+                    <Header
+                        bgImageOpacity={bgImageOpacity}
+                        bgColor={bgColor}
+                        bgImage={bgImage}
+                        headerHeight={headerHeight}
+                        headerPadding={headerPadding}
+                    />
+                    <main className='editor-main-body'>
+                        {droppedElements.map((element, index) => renderElement(element, index))}
+                        <ResumeData 
+                            textColor={color} 
+                            textFontSize={fontSize}
+                            headerColor={headerColor}
+                            headerFontSize={headerFontSize}
+                        />   
+                    <Footer/>
+                    <Watermark
+                            logoImage={logoImage}
+                            watermarkText={watermarkText}
+                            fontSize={headerFontSize}
+                            color={bgColor}
+                        />
+                    </main>  
+                </div> 
+            </div>
             <div className='tools-in-editor-container'>
                     <div>
-                        <span onClick={togglePickerVisible}>X</span>
-                        {isPickerVisible && (
-                            <ColorPicker onChange={handleColorChange} />
-                        )}
+                        <ColorPicker onChange={handleColorChange} />
                     </div>
                     <Tools
                         increaseFontSize={increaseFontSize}
@@ -182,41 +215,6 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
                         onWatermarkTextChange={handleWatermarkTextChange}
                         watermarkText={inputValue}
                     />
-            </div>
-            <div
-                id="editor"
-                ref={editorRef}
-                onDragOver={handleDragOverInEditor}
-                onDrop={handleDropInEditor}
-            >
-                
-                <div className='editor-container'>
-                    <Header
-                        bgImageOpacity={bgImageOpacity}
-                        bgColor={bgColor}
-                        bgImage={bgImage}
-                        headerHeight={headerHeight}
-                        headerPadding={headerPadding}
-                    />
-                    <main className='editor-main-body'>
-                        {droppedElements.map((element, index) => renderElement(element, index))}
-                        <ResumeData 
-                            textColor={color} 
-                            textFontSize={fontSize}
-                            headerColor={headerColor}
-                            headerFontSize={headerFontSize}
-                        />
-                    </main>
-                    <Footer/>
-                </div>
-                <div className='watermark'>
-                    <Watermark
-                        logoImage={logoImage}
-                        watermarkText={watermarkText}
-                        fontSize={headerFontSize}
-                        color={bgColor}
-                    />
-                </div>
             </div>
         </>
     );

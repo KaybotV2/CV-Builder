@@ -40,12 +40,6 @@ const handleColorChange = (newColor) => {
             onBlur={handleInputBlur}
             >{inputValue ? inputValue : color}</input>
         </label> */}
-
-        <div className="buttons">
-        <button onClick={() => setColor("#c6ad23")}>Choose gold</button>
-        <button onClick={() => setColor("#556b2f")}>Choose green</button>
-        <button onClick={() => setColor("#207bd7")}>Choose blue</button>
-        </div>
     </div>
   );
 };

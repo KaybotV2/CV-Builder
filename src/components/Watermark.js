@@ -10,7 +10,7 @@ const Watermark = ({logoImage, watermarkText, fontSize, color,}) => {
 
 
     return (
-        <div style={waterMarkStyle}>
+        <div className='watermark' style={waterMarkStyle}>
             {watermarkText && <p>{watermarkText}</p>}
             {logoImage && <div id="logo" style={{ width: '100px', height: 'auto', margin: '0 auto', marginBottom: '10px' }}>
                 {logoImage && <img src={logoImage} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />}
