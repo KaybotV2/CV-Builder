@@ -24,9 +24,14 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
     const [fontSize, setFontSize] = useState(16);
     const [headerColor, setheaderColor] = useState('#000000');
     const [headerFontSize, setHeaderFontSize] = useState(32);
-    const [watermarkText, setWatermarkText] = useState('WATERMARK');
+    const [watermarkText, setWatermarkText] = useState('');
     const [inputValue, setInputValue] = useState();
 
+
+    const handleFontFamilychange = (value) => {
+        const editor = document.querySelector('#editor > div');
+        editor.style.fontFamily = value;
+    }
 
     const handleWatermarkTextChange = (value) => {
         setWatermarkText(value);
@@ -214,6 +219,7 @@ const Editor = ({ droppedElements, handleDragOverInEditor, handleDropInEditor, d
                         headerPadding={headerPadding}
                         onWatermarkTextChange={handleWatermarkTextChange}
                         watermarkText={inputValue}
+                        onFontChange={handleFontFamilychange}
                     />
             </div>
         </>

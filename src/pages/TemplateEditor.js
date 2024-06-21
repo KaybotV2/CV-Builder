@@ -12,6 +12,10 @@ const TemplateEditor = () => {
     }
   }, []);
 
+  const handleInput = (event) => {
+    setCvContent(event.target.innerHTML);
+  };
+
   useEffect(() => {
     if (cvTemplateRef.current) {
       cvTemplateRef.current.innerHTML = cvContent;
@@ -32,6 +36,7 @@ const TemplateEditor = () => {
     }
   };
 
+
   return (
     <div className='template-container'>
       <h1>Template</h1>
@@ -39,8 +44,9 @@ const TemplateEditor = () => {
       <div
         id="editor"
         ref={cvTemplateRef}
+        onInput={handleInput}
+        dangerouslySetInnerHTML={{ __html: cvContent }}
       >
-        {cvContent}
       </div>
     </div>
   );

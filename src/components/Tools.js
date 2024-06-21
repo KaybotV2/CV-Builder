@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Tools = ({
     handleTextColorChange,
@@ -17,9 +17,35 @@ const Tools = ({
     headerHeight,
     handlePaddingChange,
     headerPadding,
-    onWatermarkTextChange
+    onWatermarkTextChange,
+    onFontChange
 }) => {
 
+    const fontFamilies = [
+        'Arial, Helvetica, sans-serif',
+        'Arial Black, Gadget, sans-serif',
+        'Comic Sans MS, cursive, sans-serif',
+        'Impact, Charcoal, sans-serif',
+        'Lucida Sans Unicode, Lucida Grande, sans-serif',
+        'Tahoma, Geneva, sans-serif',
+        'Trebuchet MS, Helvetica, sans-serif',
+        'Verdana, Geneva, sans-serif',
+        'Georgia, serif',
+        'Palatino Linotype, Book Antiqua, Palatino, serif',
+        'Times New Roman, Times, serif',
+        'Courier New, Courier, monospace',
+        'Lucida Console, Monaco, monospace',
+        'Brush Script MT, cursive',
+        'Copperplate, Papyrus, fantasy',
+        'Papyrus, fantasy'
+      ];
+      
+
+    const handleChange = (e) => {
+        onFontChange(e.target.value);
+    };
+
+   
     const handleInputChange = (e) => {
         onWatermarkTextChange(e.target.value);
     };
@@ -41,6 +67,14 @@ const Tools = ({
             </label>
             
             <hr></hr>
+            <label htmlFor="fontFamily">Font Family: </label>
+            <select id="fontFamily"  onChange={handleChange}>
+                {fontFamilies.map((font, index) => (
+                <option key={index} value={font}>
+                    {font.split(',')[0]}
+                </option>
+                ))}
+            </select>
             <label>
                 Header font color:
                 <input type="color" onChange={handleHeaderColorChange} value={headerColor} />
