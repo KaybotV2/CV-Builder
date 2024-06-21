@@ -12,29 +12,39 @@ const TemplateEditor = () => {
     }
   }, []);
 
-  const handleInput = (event) => {
-    setCvContent(event.target.innerHTML);
-  };
+ 
 
   useEffect(() => {
     if (cvTemplateRef.current) {
       cvTemplateRef.current.innerHTML = cvContent;
     }
   }, [cvContent]);
-
+  
   const convertToPDF = () => {
     if (cvTemplateRef.current) {
-      const element = cvTemplateRef.current;
-      const opt = {
-        margin: 1,
-        filename: 'resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-      html2pdf().from(element).set(opt).save();
+        const element = cvTemplateRef.current;
+        const opt = {
+            margin: 0,
+            padding: 0.1,
+            filename: 'resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 1 },  
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().from(element).set(opt).toContainer().toCanvas().toImg().toPdf().get('pdf').then((pdf) => {
+            
+            const totalPages = pdf.internal.getNumberOfPages();
+
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.setFontSize(10); 
+                pdf.text(`Page ${i} of ${totalPages}`, 0.5, pdf.internal.pageSize.height - 0.5);  
+            }
+        }).save();
     }
-  };
+};
+
 
 
   return (
@@ -44,9 +54,8 @@ const TemplateEditor = () => {
       <div
         id="editor"
         ref={cvTemplateRef}
-        onInput={handleInput}
-        dangerouslySetInnerHTML={{ __html: cvContent }}
       >
+         {cvContent}
       </div>
     </div>
   );

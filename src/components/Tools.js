@@ -81,7 +81,7 @@ const Tools = ({
             </label>
             <label>
                 Header font size:
-                <input type="number" onChange={handleHeaderFontChange} value="32"/>
+                <input type="number" onChange={handleHeaderFontChange} />
             </label>
             <label>
                 Paragraph font color:
@@ -89,7 +89,7 @@ const Tools = ({
             </label>
             <label>
                 paragraph font size:
-                <input type="number" value="16" onChange={handleTextFontChange} />
+                <input type="number" onChange={handleTextFontChange} />
             </label>
             
             <hr></hr>

@@ -197,6 +197,7 @@ li {
 }
 
 .watermark {
+  margin: 2rem auto;
   font-size: 3em;
   color: rgba(0, 0, 0, 1);
   z-index: 0;
